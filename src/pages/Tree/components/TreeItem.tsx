@@ -3,6 +3,7 @@ import Collapse from "components/Collapse";
 import { GetUserTreeResponse } from "api/user/tree/types";
 import { NodeActions } from "../types";
 import AddNode from "./AddNode";
+import DeleteNode from "./DeleteNode";
 import RenameNode from "./RenameNode";
 
 type TreeItemProps = {
@@ -30,6 +31,9 @@ const TreeItem = React.memo(({ node, actions }: TreeItemProps) => {
               )}
               {actionsArray.includes(NodeActions.Rename) && (
                 <RenameNode node={node} />
+              )}
+              {actionsArray.includes(NodeActions.Delete) && (
+                <DeleteNode node={node} />
               )}
             </div>
           </div>
