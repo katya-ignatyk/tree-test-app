@@ -1,10 +1,11 @@
-function App() {
+import Layout from "components/Layout";
 
+const App = () => {
   return (
-    <>
-      Hello
-    </>
-  )
-}
+    <Layout>
+      <>Hello</>
+    </Layout>
+  );
+};
 
-export default App
+export default App;
