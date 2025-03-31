@@ -3,6 +3,7 @@ import Collapse from "components/Collapse";
 import { GetUserTreeResponse } from "api/user/tree/types";
 import { NodeActions } from "../types";
 import AddNode from "./AddNode";
+import RenameNode from "./RenameNode";
 
 type TreeItemProps = {
   node: GetUserTreeResponse | null;
@@ -26,6 +27,9 @@ const TreeItem = React.memo(({ node, actions }: TreeItemProps) => {
             <div className="flex gap-2">
               {actionsArray.includes(NodeActions.Add) && (
                 <AddNode node={node} />
+              )}
+              {actionsArray.includes(NodeActions.Rename) && (
+                <RenameNode node={node} />
               )}
             </div>
           </div>
