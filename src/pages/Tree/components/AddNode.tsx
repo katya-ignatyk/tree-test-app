@@ -16,7 +16,11 @@ const AddNode = ({ node }: AddNodeProps) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState<string>("");
 
-  const { mutate: createUserTreeNode, loading } = useCreateUserTreeNode({
+  const {
+    mutate: createUserTreeNode,
+    loading,
+    error,
+  } = useCreateUserTreeNode({
     parentNodeId: node.id,
     nodeName: inputValue,
     treeName: TREE_NAME,
@@ -73,6 +77,7 @@ const AddNode = ({ node }: AddNodeProps) => {
             className="border-1 border-gray-300 rounded-lg p-4 w-full"
             onChange={(e) => setInputValue(e.target.value)}
           />
+          {error && <p className="text-red-600">{error}</p>}
         </div>
       </Modal>
     </>

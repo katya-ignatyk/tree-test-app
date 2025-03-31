@@ -15,7 +15,11 @@ const RenameNode = ({ node }: RenameNodeProps) => {
   const { mutate } = useTreeContext();
   const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState<string | undefined>(undefined);
-  const { mutate: updateUserTreeNode, loading } = useUpdateUserTreeNode({
+  const {
+    mutate: updateUserTreeNode,
+    loading,
+    error,
+  } = useUpdateUserTreeNode({
     newNodeName: inputValue ?? "",
     treeName: TREE_NAME,
     nodeId: node.id,
@@ -78,6 +82,7 @@ const RenameNode = ({ node }: RenameNodeProps) => {
             className="border-1 border-gray-300 rounded-lg p-4 w-full"
             onChange={(e) => setInputValue(e.target.value)}
           />
+          {error && <p className="text-red-600">{error}</p>}
         </div>
       </Modal>
     </>

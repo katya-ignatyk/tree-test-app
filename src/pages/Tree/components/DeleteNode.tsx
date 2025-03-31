@@ -15,7 +15,11 @@ const DeleteNode = ({ node }: DeleteNodeProps) => {
   const { mutate } = useTreeContext();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const { mutate: deleteUserTreeNode, loading } = useDeleteUserTreeNode({
+  const {
+    mutate: deleteUserTreeNode,
+    loading,
+    error,
+  } = useDeleteUserTreeNode({
     nodeId: node.id,
     treeName: TREE_NAME,
   });
@@ -66,6 +70,7 @@ const DeleteNode = ({ node }: DeleteNodeProps) => {
       >
         <span>Are you sure you want to delete this node? </span>
         <p className="truncate max-w-full inline-block">{node.name}</p>
+        {error && <p className="text-red-600">{error}</p>}
       </Modal>
     </>
   );

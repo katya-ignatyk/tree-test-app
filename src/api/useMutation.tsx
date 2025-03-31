@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { api } from "./config";
-import { AxiosRequestConfig } from "axios";
+import { AxiosError, AxiosRequestConfig } from "axios";
 
 export type MutationState<T> = {
   mutate: (body?: T) => Promise<void>;
@@ -26,7 +26,17 @@ const useMutation = <T,>(
       setData(response.data);
       onSuccess?.();
     } catch (err) {
-      console.log(err);
+      let errorMessage = "Something went wrong. Please try again.";
+
+      if (err instanceof AxiosError) {
+        errorMessage =
+          err.response?.data?.data?.message ||
+          err.response?.data?.error ||
+          errorMessage;
+      }
+
+      setError(errorMessage);
+      throw new Error(errorMessage);
     } finally {
       setLoading(false);
     }
