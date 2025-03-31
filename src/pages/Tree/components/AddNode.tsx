@@ -47,8 +47,7 @@ const AddNode = ({ node }: AddNodeProps) => {
   return (
     <>
       <Button onClick={openAddModal}>
-        <AiOutlinePlus className="text-xl text-gray-100" />
-        Add
+        <AiOutlinePlus className="text-[clamp(10px,2vw,14px)] text-gray-100" />
       </Button>
       <Modal
         header={<div className="text-zinc-950 font-semi-bold">Add node</div>}

@@ -52,8 +52,7 @@ const RenameNode = ({ node }: RenameNodeProps) => {
   return (
     <>
       <Button onClick={openRenameModal} variant="default">
-        <AiFillEdit className="text-xl" />
-        Rename
+        <AiFillEdit className="text-[clamp(10px,2vw,14px)]" />
       </Button>
       <Modal
         header={<div className="text-zinc-950 font-semi-bold">Rename</div>}

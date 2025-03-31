@@ -24,8 +24,10 @@ const TreeItem = React.memo(({ node, actions }: TreeItemProps) => {
       <Collapse
         title={
           <div className="flex gap-5 items-center">
-            <span className="text-white select-none">{node.name}</span>
-            <div className="flex gap-2">
+            <span className="text-white text-[clamp(13px,2vw,16px)] select-none">
+              {node.name}
+            </span>
+            <div className="flex gap-2 self-start">
               {actionsArray.includes(NodeActions.Add) && (
                 <AddNode node={node} />
               )}

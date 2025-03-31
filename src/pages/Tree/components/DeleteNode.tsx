@@ -46,8 +46,7 @@ const DeleteNode = ({ node }: DeleteNodeProps) => {
   return (
     <>
       <Button onClick={openDeleteModal}>
-        <AiFillDelete className="text-xl" />
-        Delete
+        <AiFillDelete className="text-[clamp(10px,2vw,14px)]" />
       </Button>
 
       <Modal
@@ -65,9 +64,8 @@ const DeleteNode = ({ node }: DeleteNodeProps) => {
         onClose={closeDeleteModal}
         open={isDeleteModalOpen}
       >
-        <div className="h-full flex flex-col items-center justify-center">
-          Are you sure you want to delete {node.name}?
-        </div>
+        <span>Are you sure you want to delete this node? </span>
+        <p className="truncate max-w-full inline-block">{node.name}</p>
       </Modal>
     </>
   );

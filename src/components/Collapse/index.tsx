@@ -18,17 +18,15 @@ const Collapse = ({ children, title, showIcon = true }: CollapseProps) => {
   return (
     <div>
       <div
-        className="flex gap-3 items-center cursor-pointer"
+        className="flex gap-3 items-center cursor-pointer "
         onClick={onCollapse}
       >
-        {showIcon && (
-          <AiOutlineRight
-            className={`transform transition-transform duration-300 text-gray-300 ${
-              isOpen ? "rotate-90" : ""
-            }`}
-          />
-        )}
-        <span className="font-medium">{title}</span>
+        <AiOutlineRight
+          className={`transform transition-transform duration-300 text-gray-300 text-[clamp(10px,2vw,14px)] min-w-5 ${
+            isOpen ? "rotate-90" : ""
+          } ${showIcon ? "visible" : "invisible"}`}
+        />
+        <div className="font-medium">{title}</div>
       </div>
 
       <div

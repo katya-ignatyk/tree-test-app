@@ -23,7 +23,7 @@ const Button = ({
 
   return (
     <button
-      className={`bg-transparent hover:opacity-50 cursor-pointer border rounded py-2 px-4 flex items-center gap-2 ${variants[variant]} ${className}`}
+      className={`bg-transparent hover:opacity-50 cursor-pointer border rounded p-[clamp(2px,2vw,8px)] flex items-center gap-2 ${variants[variant]} ${className}`}
       {...props}
     >
       {loading ? (
